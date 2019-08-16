@@ -11,6 +11,11 @@ class App extends Component {
       {name: 'Jithu', age: 28},
     ]
   }
+
+  eventBtnToggle = () => {
+    console.log('[eventBtnToggle]');
+    
+  }
   
   render() {
     let Persons = null;
@@ -24,6 +29,8 @@ class App extends Component {
     
     return (
       <div className="App">
+        <button type="button" onClick={this.eventBtnToggle}>Toggle Persons</button>
+        
         {Persons}
       </div>
     );
