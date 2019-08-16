@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Person name="Sangeeth" age="24" />
       <Person name="Sarath" age="20" />
-      <Person />
+      <Person>{['Football', 'hockey', 'Video Games']}</Person>
     </div>
   );
 }
