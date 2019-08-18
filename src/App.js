@@ -9,18 +9,13 @@ class App extends Component {
       { name: "Sangeeth", age: 24 },
       { name: "Sarath", age: 20 },
       { name: "Jithu", age: 28 }
-    ]
+    ],
+    showPersons: false
   };
 
-  eventBtnToggle = name => {
-    console.log("[eventBtnToggle > name]", name);
-
-    let users = [...this.state.users];
-    users[0].name = name;
-
-    console.log(" [users] ", users);
-
-    this.setState({ users });
+  eventTogglePersons = name => {
+    let showPersons = !this.state.showPersons;
+    this.setState({ showPersons });
   };
 
   fnInputChange = (event, index) => {
@@ -44,7 +39,7 @@ class App extends Component {
 
   render() {
     let Persons = null;
-    if (this.state.users && this.state.users.length) {
+    if (this.state.users && this.state.users.length && this.state.showPersons) {
       Persons = this.state.users.map((person, i) => {
         return <Person 
         name={person.name} 
@@ -53,13 +48,15 @@ class App extends Component {
         eventInputChange={(event) => this.fnInputChange(event, i)}
         eventInputOnblur={(event) => this.fnInputOnblur(event, i)} />;
       });
+    } else {
+      Persons = null;
     }
 
     return (
       <div className="App">
         <button
           type="button"
-          onClick={() => this.eventBtnToggle("Changed Name")}
+          onClick={this.eventTogglePersons}
         >
           Toggle Persons
         </button>
