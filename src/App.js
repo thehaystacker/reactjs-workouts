@@ -23,44 +23,83 @@ class App extends Component {
 
     let users = [...this.state.users];
     users[index].name = event.target.value;
-    this.setState({users});
-  }
+    this.setState({ users });
+  };
 
   fnInputOnblur = (event, index) => {
     let name = event.target.value;
-    if (name === '') {
-      name = 'User';
+    if (name === "") {
+      name = "User";
 
       let users = [...this.state.users];
       users[index].name = name;
-      this.setState({users});
+      this.setState({ users });
     }
+  };
+
+  fnDeletePerson = (event, index) => {
+    let users = [...this.state.users];
+    users.splice(index, 1);
+    this.setState({ users });
   }
 
   render() {
-    console.log('[render]');
-    
-    
+    const btnToggleStyle = {
+      border: "1px solid #346175",
+      outline: "none",
+      padding: "8px 20px",
+      borderRadius: "4px",
+      fontWeight: "600",
+      textTransform: "uppercase",
+      cursor: "pointer"
+    };
+
+    const progressStyle = {
+      width: "0%",
+      backgroundColor: "#8dafbe",
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      height: '100%',
+      transition: 'all 0.4s ease',
+    };
+
     let Persons = null;
     if (this.state.users && this.state.users.length && this.state.showPersons) {
+
+      let personsCount = this.state.users.length;
+
+      progressStyle.width = Math.round((personsCount / 3) * 100) + '%';
+      
       Persons = this.state.users.map((person, i) => {
-        return <Person 
-        name={person.name} 
-        age={person.age} 
-        key={i}
-        eventInputChange={(event) => this.fnInputChange(event, i)}
-        eventInputOnblur={(event) => this.fnInputOnblur(event, i)} />;
+        return (
+          <Person
+            name={person.name}
+            age={person.age}
+            key={i}
+            eventInputChange={event => this.fnInputChange(event, i)}
+            eventInputOnblur={event => this.fnInputOnblur(event, i)}
+            eventDeletePerson={event => this.fnDeletePerson(event, i)}
+          />
+        );
       });
     }
 
     return (
       <div className="App">
-        <button
-          type="button"
-          onClick={this.eventTogglePersons}
-        >
-          Toggle Persons
-        </button>
+        <div className="header">
+          <button
+            type="button"
+            onClick={this.eventTogglePersons}
+            style={btnToggleStyle}
+          >
+            Toggle Persons
+          </button>
+
+          <div className="progress-wrap">
+            <div className="progress" style={progressStyle} />
+          </div>
+        </div>
 
         {Persons}
       </div>

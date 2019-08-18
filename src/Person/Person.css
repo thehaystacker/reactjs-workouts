@@ -1,5 +1,4 @@
 .new-person {
-  width: 40%;
   margin: 20px auto;
   display: block;
   border: 1px solid #b0cdda;
@@ -15,4 +14,10 @@
   outline: none;
   font-weight: 600;
   color: #346073;
+}
+.new-person span {
+  float: right;
+  padding: 20px;
+  font-size: 22px;
+  cursor: pointer;
 }
