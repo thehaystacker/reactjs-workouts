@@ -38,6 +38,9 @@ class App extends Component {
   }
 
   render() {
+    console.log('[render]');
+    
+    
     let Persons = null;
     if (this.state.users && this.state.users.length && this.state.showPersons) {
       Persons = this.state.users.map((person, i) => {
@@ -48,8 +51,6 @@ class App extends Component {
         eventInputChange={(event) => this.fnInputChange(event, i)}
         eventInputOnblur={(event) => this.fnInputOnblur(event, i)} />;
       });
-    } else {
-      Persons = null;
     }
 
     return (
