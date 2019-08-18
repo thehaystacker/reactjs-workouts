@@ -12,12 +12,15 @@ class App extends Component {
     ]
   };
 
-  eventBtnToggle = () => {
-    console.log("[eventBtnToggle]");
+  eventBtnToggle = (name) => {
+    console.log("[eventBtnToggle > name]", name);
+    
+    let users = [...this.state.users];
+    users[0].name = name;
 
-    this.setState({
-      users: [...this.state.users, this.state.users[0].name = 'Sangeeth KS']
-    });
+    console.log(' [users] ', users);
+    
+    this.setState({ users });
   };
 
   render() {
@@ -30,7 +33,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <button type="button" onClick={this.eventBtnToggle}>
+        <button 
+          type="button" 
+          onClick={() => this.eventBtnToggle('Changed Name')}>
           Toggle Persons
         </button>
 
