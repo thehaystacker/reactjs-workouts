@@ -21,6 +21,13 @@ const person = props => {
       <h4>
         Hi I'm {props.name} and I'm {props.age} years old.
       </h4>
+      
+      <input 
+        type="text" 
+        value={props.name} 
+        onChange={props.eventInputChange}
+        onBlur={props.eventInputOnblur} />
+      
       {hobbies}
     </div>
   );
