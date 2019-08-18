@@ -1,4 +1,5 @@
 import React from "react";
+import './Person.css';
 
 const person = props => {
   console.log(" [props.children] ", props.children);
@@ -17,7 +18,7 @@ const person = props => {
   }
 
   return (
-    <div>
+    <div className="new-person">
       <h4>
         Hi I'm {props.name} and I'm {props.age} years old.
       </h4>
@@ -26,7 +27,8 @@ const person = props => {
         type="text" 
         value={props.name} 
         onChange={props.eventInputChange}
-        onBlur={props.eventInputOnblur} />
+        onBlur={props.eventInputOnblur}
+        className="inp-txt-person" />
       
       {hobbies}
     </div>
