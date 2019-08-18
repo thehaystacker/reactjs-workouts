@@ -17,9 +17,13 @@ const person = props => {
     );
   }
 
+  const h4Style = {
+    'color': '#346175'
+  }
+
   return (
     <div className="new-person">
-      <h4>
+      <h4 style={h4Style}>
         Hi I'm {props.name} and I'm {props.age} years old.
       </h4>
       
