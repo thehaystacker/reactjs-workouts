@@ -17,11 +17,9 @@
   position: relative;
   overflow: hidden;
 }
-
 .header button {
   float: left;
 }
-
 .header::after {
   display: block;
   content: '';
