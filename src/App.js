@@ -70,6 +70,13 @@ class App extends Component {
       transition: 'all 0.4s ease',
     };
 
+    const appStyle = {
+      '@media (max-width: 912px)': {
+        width: '90%',
+        backgroundColor: 'red'
+      }
+    }
+
     let Persons = null;
     if (this.state.users && this.state.users.length && this.state.showPersons) {
 
@@ -92,7 +99,7 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <div className="App" style={appStyle}>
         <div className="header">
           <button
             type="button"
