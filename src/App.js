@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import Radium from 'radium';
 
 import Person from "./Person/Person.js";
 
@@ -51,7 +52,12 @@ class App extends Component {
       borderRadius: "4px",
       fontWeight: "600",
       textTransform: "uppercase",
-      cursor: "pointer"
+      cursor: "pointer",
+      transition: 'all 0.3s ease',
+      ':hover': {
+        backgroundColor: 'rgb(52, 97, 117)',
+        color: '#fff',
+      }
     };
 
     const progressStyle = {
@@ -107,4 +113,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
