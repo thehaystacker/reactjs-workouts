@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import styles from "./App.module.css";
 
 import Person from "./Person/Person.js";
 
@@ -62,7 +62,7 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <div className={styles.App}>
         <div className="header">
           <button
             type="button"
