@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import Radium from 'radium';
 
 import Person from "./Person/Person.js";
 
@@ -45,44 +44,8 @@ class App extends Component {
   }
 
   render() {
-    const btnToggleStyle = {
-      border: "1px solid #346175",
-      outline: "none",
-      padding: "8px 20px",
-      borderRadius: "4px",
-      fontWeight: "600",
-      textTransform: "uppercase",
-      cursor: "pointer",
-      transition: 'all 0.3s ease',
-      ':hover': {
-        backgroundColor: 'rgb(52, 97, 117)',
-        color: '#fff',
-      }
-    };
-
-    const progressStyle = {
-      width: "0%",
-      backgroundColor: "#8dafbe",
-      position: 'absolute',
-      top: '0',
-      left: '0',
-      height: '100%',
-      transition: 'all 0.4s ease',
-    };
-
-    const appStyle = {
-      '@media (max-width: 912px)': {
-        width: '90%',
-        backgroundColor: 'red'
-      }
-    }
-
     let Persons = null;
     if (this.state.users && this.state.users.length && this.state.showPersons) {
-
-      let personsCount = this.state.users.length;
-
-      progressStyle.width = Math.round((personsCount / 3) * 100) + '%';
       
       Persons = this.state.users.map((person, i) => {
         return (
@@ -99,18 +62,17 @@ class App extends Component {
     }
 
     return (
-      <div className="App" style={appStyle}>
+      <div className="App">
         <div className="header">
           <button
             type="button"
             onClick={this.eventTogglePersons}
-            style={btnToggleStyle}
           >
             Toggle Persons
           </button>
 
           <div className="progress-wrap">
-            <div className="progress" style={progressStyle} />
+            <div className="progress" />
           </div>
         </div>
 
@@ -120,4 +82,4 @@ class App extends Component {
   }
 }
 
-export default Radium(App);
+export default App;
