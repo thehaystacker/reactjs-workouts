@@ -19,6 +19,7 @@
 .header button {
   float: left;
 }
+
 .header::after {
   display: block;
   content: '';
