@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+  padding: 4em 0;
+  width: 40%;
+  margin: 0 auto;
+}
+:global .header {
+  background-color: red;
+}
+.header .progress-wrap {
+  float: right;
+  height: 8px;
+  width: 200px;
+  background-color: #dbe7ec;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.header button {
+  float: left;
+}
+.header::after {
+  display: block;
+  content: '';
+  clear: both;
+}
